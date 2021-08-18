@@ -32,7 +32,7 @@
                             <img v-bind:src="person.image" alt="" style="width:100px;height:100px; border-radius: 50%;">
                         </td>
                         <td class="rowww">
-                            <button class="btn btn-danger mb-2" v-on:click="deleteFromDB(person.dbId)">Delete</button>
+                            <button class="btn btn-danger mb-2" v-on:click="deleteFromDB(person.dbid)">Delete</button>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="loadPersonModal(person.dbId)">Edit</button>
                         </td>
                       </tr>
@@ -43,12 +43,20 @@
 </template>
 
 <script>
+import { db } from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\main.js'
+
 export default {
     data(){
         return{
             sorting:true,
             persons:[{firstname:"ceva", lastname:"ceva",dbId:"ceva", email:"ceva",sex:"ceva", date:"ceva",avatar:"ceva"}]
         }
+    },
+    methods:{
+        //delete element from db and refresh
+        async deleteFromDB(id){
+            await db.collection("Persons").doc(id).delete();
+        },
     },
     props:{
         people:{

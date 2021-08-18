@@ -265,7 +265,12 @@ export default {
                 date: this.dateCreate,
             });
             console.log("gata")
-        }
+        },
+
+        //delete element from db and refresh
+        async deleteFromDB(id){
+            await db.collection("Persons").doc(id).delete();
+        },
     }
 }
 </script>
