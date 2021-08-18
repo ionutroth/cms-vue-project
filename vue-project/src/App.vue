@@ -3,7 +3,7 @@
     <button @click="getDatabase">test</button>
     <editCreateComp/>
     <sortComp/>
-    <tableComp/>
+    <tableComp :people="persons" />
     
   </div>
 </template>
@@ -11,9 +11,9 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import editCreateComp from './components/edit-create-comp.vue'
-import tableComp from './components/table-comp.vue'
-import sortComp from './components/sort-comp.vue'
-import { db } from './main.js'
+import tableComp from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\components\\table-comp.vue'
+import sortComp from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\components\\sort-comp.vue'
+import { db } from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\main.js'
 
 
 export default {

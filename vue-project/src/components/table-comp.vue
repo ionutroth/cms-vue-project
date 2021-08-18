@@ -21,7 +21,7 @@
                       </tr>
                     </thead>
                     <tbody style="border-color: green;border-style:solid;border-width:1px">
-                      <tr v-for="(person,index) in persons" :key="index">
+                      <tr v-for="(person,index) in people" :key="index">
                         <th scope="row" id="numbering" style="background-color:rgb(214, 226, 214) ;">{{index + 1}}</th>
                         <td class="rowww">{{person.firstname}}</td>
                         <td class="rowww">{{person.lastname}}</td>
@@ -48,6 +48,12 @@ export default {
         return{
             sorting:true,
             persons:[{firstname:"ceva", lastname:"ceva",dbId:"ceva", email:"ceva",sex:"ceva", date:"ceva",avatar:"ceva"}]
+        }
+    },
+    props:{
+        people:{
+            type:Array,
+            required:true
         }
     }
 }
