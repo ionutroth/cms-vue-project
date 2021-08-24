@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container-flex">
-    <button @click="getDatabase">test</button>
-    <editCreateComp/>
+    <!-- <button @click="getDatabase">test</button> -->
+    <editCreateComp :edit="editForm" />
     <sortComp/>
     <tableComp :people="persons" />
     
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
 import editCreateComp from './components/edit-create-comp.vue'
 import tableComp from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\components\\table-comp.vue'
 import sortComp from 'C:\\Users\\IonutRoth\\Documents\\GitHub\\cms-vue-project\\vue-project\\src\\components\\sort-comp.vue'
@@ -25,7 +25,8 @@ export default {
   },
   data(){
     return{
-      persons:[]
+      persons:[],
+      editForm:true
     }
   },
   methods:{

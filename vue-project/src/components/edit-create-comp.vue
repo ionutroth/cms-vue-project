@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center mt-4 mb-4" >
-        <div class="col col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6  shadow" id="create-form">
+        <div class="col col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6  shadow" id="create-form" v-show="edit == false">
             <div class="form-group w-75 mx-auto">
                 <label for="firstname">Firstname</label>
                 <input type="text" class="form-control" id="firstname" placeholder="Enter your firstname" required v-model="firstnameCreate">
@@ -36,7 +36,7 @@
             <button class="btn btn-warning mr-3">Clear</button>
         </div>
 
-        <div class="col col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6 shadow" id="edit-form">
+        <div class="col col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6 shadow" id="edit-form" v-show="edit == true">
             <div class="form-group w-75 mx-auto">
                 <label for="firstname">Firstname</label>
                 <input type="text"  class="form-control" id="firstnameEdit" placeholder="Enter your firstname" required>
@@ -271,13 +271,19 @@ export default {
         async deleteFromDB(id){
             await db.collection("Persons").doc(id).delete();
         },
+    },
+    props:{
+       edit:{
+           type:Boolean,
+           required:true
+       } 
     }
 }
 </script>
 
 <style>
 #create-form{
-    background-color: rgb(214, 226, 214);
+    background-color: rgb(142, 172, 175);
     border-radius: 20px;
     padding:30px;
     border-style: solid;
@@ -296,7 +302,6 @@ export default {
     border-width: 1px;
     text-align: center;
     min-width:450px;
-    display:none
 }
 
 #avatar{
